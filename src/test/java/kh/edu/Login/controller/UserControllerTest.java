@@ -60,17 +60,17 @@ public class UserControllerTest {
         when(userService.login(any(UserVO.class))).thenReturn(dummyUser);
         //만약 아이디 비밀번호가 일치하다면
         mvc.perform(
-                        //controller post 에 작성한 api endpoint 주소로 전송
-                        post("/login.do")
-                                //아이디 비밀번호를 설정해서 전송
-                                //.param = HTML 에서 input 태그에 값을 넣은 상태
-                                .param("userId","user_lee")
-                                //id나 name 명칭이 userPw 인 input 태그에 1234를 비밀번호로 작성한 상태
-                                .param("userPw","1234"))
-                                //HTTP 응답 코드가 .isOk(200) 인 상태일 때
-                                .andExpect(status().isOk())
-                                //view()= html 파일에서 파일 명칭이 "loginSuccess"인 파일로 이동하기
-                                .andExpect(view().name("loginSuccess"));
+                //controller post 에 작성한 api endpoint 주소로 전송
+                post("/login.do")
+                        //아이디 비밀번호를 설정해서 전송
+                        //.param = HTML 에서 input 태그에 값을 넣은 상태
+                        .param("userId","user_lee")
+                        //id나 name 명칭이 userPw 인 input 태그에 1234를 비밀번호로 작성한 상태
+                        .param("userPw","1234"))
+                        //HTTP 응답 코드가 .isOk(200) 인 상태일 때
+                        .andExpect(status().isOk())
+                        //view()= html 파일에서 파일 명칭이 "loginSuccess"인 파일로 이동하기
+                        .andExpect(view().name("loginSuccess"));
     }
 
 
