@@ -67,10 +67,10 @@ public class UserControllerTest {
                                 .param("userId","user_lee")
                                 //id나 name 명칭이 userPw 인 input 태그에 1234를 비밀번호로 작성한 상태
                                 .param("userPw","1234"))
-                //HTTP 응답 코드가 .isOk(200) 인 상태일 때
-                .andExpect(status().isOk())
-                //view()= html 파일에서 파일 명칭이 "loginSuccess"인 파일로 이동하기
-                .andExpect(view().name("loginSuccess"));
+                                //HTTP 응답 코드가 .isOk(200) 인 상태일 때
+                                .andExpect(status().isOk())
+                                //view()= html 파일에서 파일 명칭이 "loginSuccess"인 파일로 이동하기
+                                .andExpect(view().name("loginSuccess"));
     }
 
 
@@ -81,7 +81,7 @@ public class UserControllerTest {
         mvc.perform(post("/login.do")
                         .param("userId", "wrongUser")
                         .param("userPw", "wrongPw"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("loginFail"));
+                        .andExpect(status().isOk())
+                        .andExpect(view().name("loginFail"));
     }
 }
